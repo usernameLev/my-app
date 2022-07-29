@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.selectControl {
+  &_root {
+    position: relative;
+    cursor: crosshair;
+    display: inline-block;
+  }
+
+  &_area {
+    position: absolute;
+    outline: 1px solid red;
+    outline-style: dotted;
+    cursor: all-scroll;
+  }
+}
+
+.twitter-picker,
+.file {
+  margin: 20px auto;
+}

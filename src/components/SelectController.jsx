@@ -1,6 +1,5 @@
 import React from "react";
 import { TwitterPicker } from "react-color";
-import useUndo from "use-undo";
 
 const getSelectedImage = (canvas, begin, end) => {
   const ctx = canvas.getContext("2d");
@@ -24,7 +23,7 @@ const getSelectedImage = (canvas, begin, end) => {
 };
 
 const fillWithColor = (canvas, color, begin, end) => {
-  var ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d");
   ctx.fillStyle = color;
   ctx.save();
   ctx.beginPath();
@@ -47,7 +46,7 @@ const fillWithColor = (canvas, color, begin, end) => {
 };
 
 const addImageToCanvas = (canvas, imageSrc, begin, end) => {
-  var ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d");
   const imageElement = document.createElement("img");
   imageElement.src = imageSrc;
 
@@ -156,9 +155,6 @@ export const SelectController = ({ width, height, imageElement, onChange }) => {
     }
   };
 
-  const [{ present: image }, { set: setImage, undo, redo, canUndo, canRedo }] =
-  useUndo();
-
   return (
     <>
       <div className="selectControl_root">
@@ -206,12 +202,6 @@ export const SelectController = ({ width, height, imageElement, onChange }) => {
           onMouseUp={onMouseUp}
         />
 
-<button onClick={redo} disabled={!canRedo}>
-        вперед
-      </button>
-      <button onClick={undo} disabled={!canUndo}>
-        назад
-      </button>
       </div>
       <TwitterPicker onChange={onColorChange} />
     </>

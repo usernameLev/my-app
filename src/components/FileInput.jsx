@@ -24,5 +24,5 @@ export const FileInput = ({ onImageChange }) => {
     }
   };
 
-  return <input type="file" accept="image/*" onChange={onSelectFile} />;
+  return <input type="file" accept="image/*" onChange={onSelectFile} className="file" />;
 };
